@@ -25,4 +25,4 @@ document.getElementById("btn-galeria").addEventListener("click", () => {
     })
 })
 
-galeria
+// COMENTARIO PARA TESTAR COMMIT
