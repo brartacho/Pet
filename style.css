@@ -1,18 +1,167 @@
-/* reset da página */
-
-.grade{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-    /* coluna terá 150px na altura minima e na altura máxima, terá 1fr */
-    /* auto-fit:  */
-    gap: 15px;
-    margin-top: 20px;
+/* Reset Básico e Seguro */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Isso impede que paddings quebrem a largura da tela */
 }
 
-.grade img{
-    width: 100%; 
-    /* 100% de 150px, definido no parâmetro pai */
-    height: 100%;
-    border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f1f5f9; /* Fundo cinza bem claro */
+    color: #334155;
+    line-height: 1.6;
+}
+
+/* Menu */
+.menu {
+    background-color: #1e293b;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que o menu se ajuste no celular */
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.menu .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.menu .links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.menu .links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    background-color: #3b82f6; /* Azul moderno */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* Container Principal (Trava a largura máxima) */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cartões de Conteúdo */
+.cartao {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cartao h2 {
+    color: #1e293b;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 5px;
+}
+
+.cartao ul, .cartao ol {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.cartao li {
+    margin-bottom: 8px;
+}
+
+/* Tabela Responsiva (A Correção Principal) */
+.tabela-container {
+    width: 100%;
+    overflow-x: auto; /* Cria barra de rolagem apenas na tabela se a tela for pequena */
+}
+
+table {
+    width: 100%;
+    min-width: 500px; /* Garante que a tabela não esmague o texto */
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f8fafc;
+}
+
+/* Alertas */
+.alerta {
+    background-color: #fee2e2;
+    border-left: 4px solid #ef4444;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+/* Botão e Galeria */
+.botao {
+    background-color: #f97316; /* Laranja pet */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 15px 0;
+}
+
+.botao:hover {
+    background-color: #ea580c;
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.grade img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Impede a imagem de distorcer */
+    border-radius: 8px;
+}
+
+/* Rodapé */
+.rodape {
+    background-color: #1e293b;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.rodape-conteudo {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
 }
