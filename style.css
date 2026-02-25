@@ -1,0 +1,18 @@
+/* reset da página */
+
+.grade{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    /* coluna terá 150px na altura minima e na altura máxima, terá 1fr */
+    /* auto-fit:  */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.grade img{
+    width: 100%; 
+    /* 100% de 150px, definido no parâmetro pai */
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
