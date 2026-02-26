@@ -3,68 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuidados Pets | Clínica Veterinária</title>
+    <title>Cuidados Pets</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./imagens/caes/logo_pegada_cao.png" type="image/x-icon">
 </head>
-<body>
 
-    <nav class="menu">
-        <div class="logo">🐾 Cuidados Pets</div>
-        <ul class="links">
-            <li><a href="#boas_vindas">Início</a></li>
+<body>
+    <nav class="menu-principal">
+        <a href="#" class="logo">🐾 Cuidados Pets</a>
+        <ul class="links-menu">
+            <li><a href="#boas_vindas">Dicas Básicas</a></li>
             <li><a href="#tabela_racas">Raças</a></li>
             <li><a href="#dicas_treinamento">Treinamento</a></li>
-            <li><a href="#sinais_ajuda_pet">Saúde</a></li>
+            <li><a href="#sinais_ajuda_pet">Saúde & Emergências</a></li>
         </ul>
     </nav>
 
     <header class="cabecalho">
-        <h1>Guia de Cuidados Pet</h1>
-        <p>Tudo o que você precisa saber para a saúde do seu melhor amigo.</p>
+        <h1>Cuidados Pets</h1>
+        <h2>Cuidados básicos com o seu cachorro</h2>
+        <p>18 de janeiro de 2026</p>
     </header>
 
     <main class="container">
-        
         <section id="boas_vindas" class="cartao">
-            <h2>Bem-vindo ao nosso guia</h2>
-            <p>Neste espaço, você encontrará informações úteis sobre como cuidar do seu canino.</p>
+            <p class="texto-intro">Bem-vindo ao nosso blog sobre cachorros de estimação! Neste espaço, você encontrará informações e dicas úteis sobre como cuidar do seu melhor amigo canino.</p>
             <ul>
-                <li><strong>Alimentação:</strong> Ração de qualidade é essencial. Evite comida humana.</li>
-                <li><strong>Higiene:</strong> Banhos regulares e escovação previnem dermatites.</li>
-                <li><strong>Prevenção:</strong> Mantenha vacinas e vermifugação em dia.</li>
-                <li><strong>Bem-estar:</strong> Passeios diários garantem saúde física e mental.</li>
-                <li><strong>Acompanhamento:</strong> Consultas ao veterinário salvam vidas.</li>
+                <li><strong>Alimentação:</strong> uma alimentação adequada é essencial para a saúde do seu cão. Dê a ele ração de qualidade e evite dar comida humana, que pode causar problemas de saúde.</li>
+                <li><strong>Higiene:</strong> banhos regulares, escovação dos pelos e limpeza dos ouvidos são importantes para manter o seu cachorro limpo e saudável.</li>
+                <li><strong>Vacinas e vermifugação:</strong> mantenha a carteira de vacinação do seu cachorro atualizada e faça a vermifugação regularmente para prevenir doenças.</li>
+                <li><strong>Passeios e exercícios:</strong> os cachorros precisam de exercícios físicos diários para manter a saúde e a felicidade. Leve-o para passear e brincar regularmente.</li>
+                <li><strong>Consultas ao veterinário:</strong> consulte regularmente um veterinário para garantir que seu cachorro esteja saudável e receba os cuidados necessários.</li>
             </ul>
         </section>
 
         <section id="tabela_racas" class="cartao">
             <h2>Guia de Raças</h2>
-            <p>Cada raça possui necessidades específicas:</p>
-            
-            <div class="tabela-container">
+            <p>Existem muitas raças de cachorro, cada uma com suas características e personalidades únicas. Algumas das raças mais populares incluem:</p>
+
+            <div class="tabela-responsiva">
                 <table>
                     <thead>
                         <tr>
+                            <th>Foto</th>
                             <th>Raça</th>
                             <th>Características</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Labrador</td>
-                            <td>Amigável, leal, inteligente e com muita energia.</td>
+                            <td><img src="./imagens/caes/Labrador-Retriever.webp" alt="Labrador Retriever" class="img-tabela"></td>
+                            <td><strong>Labrador Retriever</strong></td>
+                            <td>Uma das raças mais populares do mundo, o labrador é conhecido por ser amigável, leal e inteligente.</td>
                         </tr>
                         <tr>
-                            <td>Golden Retriever</td>
-                            <td>Afetuoso, dócil, excelente para famílias com crianças.</td>
+                            <td><img src="./imagens/caes/golden-retriever-02.webp" alt="Golden Retriever" class="img-tabela"></td>
+                            <td><strong>Golden Retriever</strong></td>
+                            <td>Outro favorito popular, o golden retriever é um cachorro amigável e afetuoso que adora brincar.</td>
                         </tr>
                         <tr>
-                            <td>Poodle</td>
-                            <td>Hipoalergênico, altamente inteligente.</td>
+                            <td><img src="./imagens/caes/poodle.jpg" alt="Poodle" class="img-tabela"></td>
+                            <td><strong>Poodle</strong></td>
+                            <td>Uma raça inteligente e brincalhona, o poodle vem em três tamanhos diferentes e é uma ótima opção para pessoas com alergias.</td>
                         </tr>
                         <tr>
-                            <td>Bulldog Inglês</td>
-                            <td>Tranquilo, necessita de cuidados com a respiração.</td>
+                            <td><img src="./imagens/caes/bulldog-ingles.webp" alt="Bulldog Inglês" class="img-tabela"></td>
+                            <td><strong>Bulldog Inglês</strong></td>
+                            <td>Um cachorro amigável e leal, o bulldog inglês é uma raça tranquila e de baixa energia.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="./imagens/caes/pastor-alemao.jpg" alt="Pastor Alemão" class="img-tabela"></td>
+                            <td><strong>Pastor Alemão</strong></td>
+                            <td>Uma raça inteligente e corajosa, o pastor alemão é frequentemente usado como cão policial ou de guarda.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -72,45 +82,112 @@
         </section>
 
         <section id="dicas_treinamento" class="cartao">
-            <h2>Treinamento Positivo</h2>
+            <h2>Dicas para treinamento de cachorro</h2>
             <ol>
-                <li><strong>Use reforço positivo:</strong> Recompense acertos.</li>
-                <li><strong>Seja consistente:</strong> Use as mesmas palavras de comando.</li>
-                <li><strong>Paciência é a chave:</strong> A repetição constrói o aprendizado.</li>
+                <li><strong>Use reforço positivo:</strong> recompense seu cachorro quando ele fizer algo certo, em vez de puni-lo quando ele fizer algo errado.</li>
+                <li><strong>Seja consistente:</strong> use os mesmos comandos e treinamentos todos os dias para que o seu cachorro entenda o que é esperado dele.</li>
+                <li><strong>Não desista:</strong> treinar um cachorro pode ser difícil, mas é importante ser persistente e continuar tentando.</li>
+                <li><strong>Envolva toda a família:</strong> todos devem participar do treinamento do cachorro para que ele entenda o que é esperado dele.</li>
+                <li><strong>Considere a ajuda de um profissional:</strong> se você estiver tendo dificuldades com o treinamento do seu cachorro, pode ser útil procurar a ajuda de um treinador profissional.</li>
             </ol>
+            
+            <div class="lembrete-destaque">
+                <p><strong>Lembre-se:</strong> cuidar de um cachorro é uma responsabilidade importante, mas com amor e atenção, você pode desfrutar de uma vida feliz e saudável com o seu melhor amigo peludo.</p>
+            </div>
         </section>
 
         <section id="galeria" class="cartao">
-            <h2>Galeria de Pacientes</h2>
-            <button id="btn-galeria" class="botao">Carregar Fotos</button>
+            <div class="cabecalho-secao">
+                <h2>Galeria de Cães</h2>
+                <button id="btn-galeria" class="botao">Mostrar Galeria</button>
+            </div>
+            
             <div id="imagens-galeria" class="grade"></div>
         </section>
 
+        <section class="pesquisa cartao">
+            <h2>Pesquisar Raças</h2>
+            <input type="text" id="campo-filtro" placeholder="Escolha uma raça">
+            <ul id="resultado">
+                
+            </ul>
+            
+        </section>
+
         <section id="sinais_ajuda_pet" class="cartao">
-            <h2>Atenção Veterinária</h2>
-            <p>Fique atento a estes sinais críticos:</p>
-            <div class="alerta">
-                <ul>
-                    <li>Dificuldade respiratória ou língua azulada.</li>
-                    <li>Convulsões ou desmaios.</li>
-                    <li>Apatia severa ou falta de apetite por mais de 24h.</li>
-                </ul>
+            <h2>Sinais de que seu cachorro precisa de ajuda veterinária</h2>
+            <p>Saber reconhecer quando seu cachorro não está bem é fundamental para garantir sua saúde e bem-estar. Muitas vezes, os pets não conseguem demonstrar claramente que estão sentindo dor ou desconforto, por isso é importante estar atento aos sinais.</p>
+            <ul>
+                <li><strong>Dificuldade para respirar:</strong> respiração ofegante excessiva, língua azulada ou respiração muito rápida;</li>
+                <li><strong>Vômitos frequentes:</strong> especialmente se houver sangue ou se o animal não conseguir manter água no estômago;</li>
+                <li><strong>Diarreia com sangue:</strong> pode indicar problemas intestinais sérios;</li>
+                <li><strong>Convulsões:</strong> movimentos descontrolados, perda de consciência;</li>
+                <li><strong>Inchaço abdominal:</strong> barriga muito inchada e rígida, especialmente em cães grandes;</li>
+                <li><strong>Ferimentos graves:</strong> cortes profundos, fraturas óbvias ou sangramento intenso.</li>
+            </ul>
+        </section>
+
+        <section id="sinais_atencao" class="cartao">
+            <h2>Sinais que merecem atenção - agende uma consulta</h2>
+            <ul>
+                <li><strong>Perda de apetite:</strong> não comer por mais de 24 horas</li>
+                <li><strong>Letargia:</strong> muito quieto, sem energia para brincar ou passear</li>
+                <li><strong>Mudanças no comportamento:</strong> agressividade incomum ou isolamento</li>
+                <li><strong>Problemas urinários:</strong> dificuldade ou dor ao urinar, urina com sangue</li>
+                <li><strong>Tosse persistente:</strong> tosse que dura mais de alguns dias</li>
+                <li><strong>Coceira excessiva:</strong> se coçar constantemente, feridas na pele</li>
+            </ul>
+        </section>
+
+        <section id="procedimentos_emergencia" class="cartao">
+            <h2>Como agir em uma emergência</h2>
+            <ol>
+                <li><strong>Mantenha a calma:</strong> animais sentem nosso nervosismo e podem ficar mais agitados</li>
+                <li><strong>Ligue para o veterinário:</strong> explique a situação e siga as orientações</li>
+                <li><strong>Transporte seguro:</strong> use uma manta ou toalha para carregar o animal com cuidado</li>
+                <li><strong>Não dê medicamentos:</strong> nunca dê remédios humanos sem orientação veterinária</li>
+                <li><strong>Observe e anote:</strong> registre os sintomas para relatar ao veterinário</li>
+            </ol>
+            
+            <div class="lembrete-destaque">
+                <p><strong>Lembrete:</strong> é sempre melhor prevenir do que remediar. Consultas regulares ao veterinário ajudam a identificar problemas antes que se tornem graves. Quando em dúvida, sempre consulte um profissional - seu cachorro agradecerá!</p>
             </div>
         </section>
 
     </main>
 
     <footer class="rodape">
-        <div class="rodape-conteudo">
-            <div>
-                <h3>Emergência 24h</h3>
-                <p>📞 (11) 9999-9999</p>
-            </div>
-            <div>
-                <h3>Endereço</h3>
+        <div class="rodape-grid">
+            <article>
+                <h3>Informações Úteis</h3>
+                <p><strong>Veterinário 24h:</strong><br>(11) 9999-9999</p>
+                <p><strong>Controle de Zoonoses:</strong><br>(11) 3333-3333</p>
+            </article>
+
+            <article>
+                <h3>Dica Rápida</h3>
+                <p>💡 Cachorros adultos precisam de pelo menos 30 minutos de exercício por dia para manter a saúde física e mental.</p>
+            </article>
+
+            <article>
+                <h3>Links Importantes</h3>
+                <ul>
+                    <li><a href="#">Calendário de Vacinação</a></li>
+                    <li><a href="#">Guia de Nutrição</a></li>
+                    <li><a href="#">Comportamento Canino</a></li>
+                </ul>
+            </article>
+            
+             <article>
+                <h3>Contato</h3>
                 <p>Rua das Flores, 123 - Centro</p>
                 <p>Campina Grande - PB</p>
-            </div>
+                <p>contato@cuidadospets.com</p>
+            </article>
+        </div>
+
+        <div class="rodape-copyright">
+            <p>© 2026 Cuidados Pets. Todos os direitos reservados. | Última atualização: 18 de julho de 2026</p>
         </div>
     </footer>
 

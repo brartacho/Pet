@@ -1,8 +1,31 @@
-/* Reset Básico e Seguro */
+/* ==========================================================================
+   IMPORTAÇÃO DE FONTES (TENDÊNCIA 2026)
+   Outfit: Moderna e imponente para títulos
+   Inter: Alta legibilidade para textos longos
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap');
+
+/* ==========================================================================
+   VARIÁVEIS GLOBAIS (PALETA MINIMALISMO BOTÂNICO)
+   ========================================================================== */
+:root {
+    --cor-primaria: #283618; /* Verde Musgo Escuro */
+    --cor-secundaria: #606c38; /* Verde Sálvia */
+    --cor-destaque: #dda15e; /* Caramelo/Areia */
+    --cor-fundo: #fefae0; /* Fundo off-white quente */
+    --cor-cartao: #ffffff; /* Fundo dos blocos de conteúdo */
+    --cor-texto: #4b5563; /* Cinza médio */
+    --cor-titulo: #1f2937; /* Cinza chumbo */
+    --borda-suave: 1px solid #e5e7eb;
+}
+
+/* ==========================================================================
+   RESET E CONFIGURAÇÕES BASE
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Isso impede que paddings quebrem a largura da tela */
+    box-sizing: border-box;
 }
 
 html {
@@ -10,158 +33,488 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f1f5f9; /* Fundo cinza bem claro */
-    color: #334155;
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.7;
 }
 
-/* Menu */
-.menu {
-    background-color: #1e293b;
-    color: white;
-    padding: 15px 20px;
+h1, h2, h3, .logo {
+    font-family: 'Outfit', sans-serif;
+    color: var(--cor-titulo);
+}
+
+/* ==========================================================================
+   NAVEGAÇÃO (MENU FIXO)
+   ========================================================================== */
+.menu-principal {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: var(--borda-suave);
+    padding: 16px 5%;
     display: flex;
-    flex-wrap: wrap; /* Permite que o menu se ajuste no celular */
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
-.menu .logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.menu .links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.menu .links a {
-    color: white;
+.menu-principal .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    letter-spacing: -0.5px;
     text-decoration: none;
 }
 
-/* Cabeçalho */
+.links-menu {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+.links-menu a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.links-menu a:hover {
+    color: var(--cor-secundaria);
+}
+
+@media (max-width: 650px) {
+    .menu-principal {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+    }
+    .links-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+/* ==========================================================================
+   CABEÇALHO (HERO)
+   ========================================================================== */
 .cabecalho {
-    background-color: #3b82f6; /* Azul moderno */
+    background-color: var(--cor-primaria);
+    background-image: radial-gradient(circle at top right, var(--cor-secundaria), transparent);
     color: white;
     text-align: center;
-    padding: 60px 20px;
+    padding: 50px 20px;
+    border-bottom: 4px solid var(--cor-destaque);
 }
 
-/* Container Principal (Trava a largura máxima) */
+.cabecalho h1 {
+    color: white;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 12px;
+}
+
+.cabecalho h2 {
+    color: #fefae0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+
+.cabecalho p {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL E CARTÕES DE CONTEÚDO
+   ========================================================================== */
 .container {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 0 15px;
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 32px;
 }
 
-/* Cartões de Conteúdo */
 .cartao {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: var(--cor-cartao);
+    padding: 40px;
+    border-radius: 16px;
+    border: var(--borda-suave);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    scroll-margin-top: 100px;
 }
 
 .cartao h2 {
-    color: #1e293b;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 5px;
+    color: var(--cor-primaria);
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    border-left: 6px solid var(--cor-destaque);
+    padding-left: 16px;
+    line-height: 1.3;
+}
+
+.texto-intro {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem; 
+    color: var(--cor-primaria);
+    line-height: 1.6;
+    margin-bottom: 35px;
+    font-weight: 400; 
+    text-align: center; 
+    padding: 30px;
+    background-color: var(--cor-fundo); 
+    border-radius: 12px;
+    border: 1px dashed var(--cor-destaque); 
+}
+
+.cartao p {
+    margin-bottom: 16px;
 }
 
 .cartao ul, .cartao ol {
     margin-left: 20px;
-    margin-top: 10px;
+    margin-bottom: 16px;
 }
 
 .cartao li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-/* Tabela Responsiva (A Correção Principal) */
-.tabela-container {
+.cartao strong {
+    color: var(--cor-titulo);
+}
+
+/* Deixa o cartão mais enxuto e corrige a rolagem em telas de celular */
+@media (max-width: 600px) {
+    .cartao {
+        padding: 24px;
+        scroll-margin-top: 160px; /* Desconto maior para compensar o menu empilhado */
+    }
+    
+    .texto-intro {
+        padding: 20px;
+        font-size: 1.15rem;
+    }
+}
+
+/* ==========================================================================
+   CAIXAS DE DESTAQUE (LEMBRETES)
+   ========================================================================== */
+.lembrete-destaque {
+    background-color: var(--cor-fundo);
+    border-left: 4px solid var(--cor-destaque);
+    padding: 16px 20px;
+    margin-top: 24px;
+    border-radius: 0 8px 8px 0;
+    color: var(--cor-primaria);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.lembrete-destaque::before {
+    content: "💡";
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+.lembrete-destaque p {
+    margin: 0;
+}
+
+/* ==========================================================================
+   TABELA RESPONSIVA E IMAGENS DAS RAÇAS
+   ========================================================================== */
+.tabela-responsiva {
     width: 100%;
-    overflow-x: auto; /* Cria barra de rolagem apenas na tabela se a tela for pequena */
+    overflow-x: auto;
+    margin-top: 24px;
+    border: var(--borda-suave);
+    border-radius: 8px;
 }
 
 table {
     width: 100%;
-    min-width: 500px; /* Garante que a tabela não esmague o texto */
+    min-width: 650px;
     border-collapse: collapse;
-    margin-top: 15px;
 }
 
 th, td {
-    border: 1px solid #cbd5e1;
-    padding: 12px;
+    padding: 16px;
     text-align: left;
+    border-bottom: var(--borda-suave);
+    vertical-align: middle; 
 }
 
 th {
-    background-color: #f8fafc;
+    background-color: var(--cor-primaria); 
+    font-weight: 600;
+    color: white; 
+    border-bottom: none; 
 }
 
-/* Alertas */
-.alerta {
-    background-color: #fee2e2;
-    border-left: 4px solid #ef4444;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 4px;
+tr:hover td {
+    background-color: var(--cor-fundo);
 }
 
-/* Botão e Galeria */
+.img-tabela {
+    width: 120px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    display: block;
+}
+
+/* ==========================================================================
+   BOTÕES E GALERIA INTERATIVA
+   ========================================================================== */
 .botao {
-    background-color: #f97316; /* Laranja pet */
+    background-color: var(--cor-primaria);
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
+    padding: 14px 28px;
     font-size: 1rem;
-    margin: 15px 0;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin: 0; 
 }
 
 .botao:hover {
-    background-color: #ea580c;
+    background-color: var(--cor-secundaria);
 }
 
-.grade {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+.cabecalho-secao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
     gap: 15px;
 }
 
+.cabecalho-secao h2 {
+    margin-bottom: 0;
+}
+
+/* --- Grade da Galeria --- */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+/* A MÁGICA AQUI: Se a grade estiver vazia, ela some e zera a margem! */
+.grade:empty {
+    display: none;
+    margin-top: 0;
+}
+
+/* Imagens da galeria com efeito de Zoom e Sombra */
 .grade img {
     width: 100%;
-    height: 150px;
-    object-fit: cover; /* Impede a imagem de distorcer */
+    height: 200px;
+    object-fit: cover;
     border-radius: 8px;
+    border: var(--borda-suave);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative; /* Ajuda a imagem a sobrepor as outras no momento do zoom */
 }
 
-/* Rodapé */
+.grade img:hover {
+    transform: scale(1.05) !important; /* o !important força o zoom a vencer a animação do JavaScript */
+    box-shadow: 0 12px 24px rgba(40, 54, 24, 0.25);
+    border-color: transparent;
+    z-index: 10;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* ==========================================================================
+   RODAPÉ ORGÂNICO
+   ========================================================================== */
 .rodape {
-    background-color: #1e293b;
-    color: white;
-    padding: 40px 20px;
-    margin-top: 40px;
+    background-color: #1b260f; 
+    background-image: linear-gradient(to bottom, #1b260f, #141c0a);
+    color: #d1d5db;
+    padding-top: 70px;
+    margin-top: 80px;
+    border-top: 4px solid var(--cor-destaque);
 }
 
-.rodape-conteudo {
-    max-width: 800px;
+.rodape-grid {
+    max-width: 1100px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 50px;
+    padding: 0 30px 50px;
+}
+
+.rodape h3 {
+    color: var(--cor-destaque);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.rodape ul {
+    list-style: none;
+}
+
+.rodape li {
+    margin-bottom: 10px;
+}
+
+.rodape a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.rodape a:hover {
+    color: var(--cor-destaque);
+    text-decoration: underline;
+}
+
+.rodape strong {
+    color: #e5e7eb;
+}
+
+.rodape-copyright {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ==========================================================================
+   CAMPO DE PESQUISA
+   ========================================================================== */
+.input-pesquisa {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-pesquisa:focus {
+    border-color: var(--cor-destaque); /* Fica caramelo quando o usuário clica */
+}
+
+.lista-resultados {
+    list-style: none;
+    margin-left: 0 !important; /* Remove a margem padrão das listas */
+}
+
+.lista-resultados li {
+    padding: 12px;
+    background-color: var(--cor-fundo);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    color: var(--cor-primaria);
+    font-weight: 500;
+    border-left: 3px solid var(--cor-destaque);
+}
+
+/* ==========================================================================
+   SEÇÃO DE PESQUISA (FILTRO)
+   ========================================================================== */
+
+/* Garante que a seção tenha a mesma cara dos outros cartões (caso você não tenha colocado a classe 'cartao' no HTML) */
+.pesquisa {
+    background-color: var(--cor-cartao);
+    padding: 40px;
+    border-radius: 16px;
+    border: var(--borda-suave);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    margin-bottom: 32px;
+}
+
+.pesquisa h2 {
+    color: var(--cor-primaria);
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    border-left: 6px solid var(--cor-destaque);
+    padding-left: 16px;
+    line-height: 1.3;
+}
+
+/* --- O Campo de Digitação (Input) --- */
+#campo-filtro {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo); /* Fundo areia clarinho para descansar a visão */
+    border: 2px solid transparent; /* Borda invisível no estado normal */
+    border-radius: 8px;
+    outline: none; /* Remove aquela borda azul padrão feia do navegador */
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+/* Placeholder (O texto "Escolha uma raça" que fica lá dentro) */
+#campo-filtro::placeholder {
+    color: #9ca3af;
+}
+
+/* Efeito de Foco (Quando o usuário clica para digitar) */
+#campo-filtro:focus {
+    background-color: white; /* Clareia o fundo */
+    border-color: var(--cor-destaque); /* Acende a borda caramelo */
+    box-shadow: 0 0 0 4px rgba(221, 161, 94, 0.15); /* Cria uma "aura" caramelo ao redor */
+}
+
+/* --- Lista de Resultados --- */
+#resultado {
+    list-style: none; /* Tira as bolinhas padrão da lista */
+    margin-left: 0;
+    padding: 0;
+}
+
+/* Cada item da lista vira um mini-cartão */
+#resultado li {
+    background-color: white;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: var(--borda-suave);
+    border-left: 4px solid var(--cor-primaria); /* Detalhe verde na esquerda */
+    color: var(--cor-titulo);
+    font-weight: 500;
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: space-between;
+    align-items: center;
+    /* Reutiliza a animação de entrada que já criamos para a galeria */
+    animation: fadeIn 0.3s ease forwards; 
+}
+
+/* Responsividade da seção de pesquisa */
+@media (max-width: 600px) {
+    .pesquisa {
+        padding: 24px;
+    }
 }
