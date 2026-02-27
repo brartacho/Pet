@@ -1,22 +1,20 @@
 /* ==========================================================================
    IMPORTAÇÃO DE FONTES (TENDÊNCIA 2026)
-   Outfit: Moderna e imponente para títulos
-   Inter: Alta legibilidade para textos longos
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap');
 
 /* ==========================================================================
-   VARIÁVEIS GLOBAIS (PALETA MINIMALISMO BOTÂNICO)
+   VARIÁVEIS GLOBAIS (PALETA PISTACHE & NATUREZA)
    ========================================================================== */
 :root {
-    --cor-primaria: #283618; /* Verde Musgo Escuro */
-    --cor-secundaria: #606c38; /* Verde Sálvia */
-    --cor-destaque: #dda15e; /* Caramelo/Areia */
-    --cor-fundo: #fefae0; /* Fundo off-white quente */
-    --cor-cartao: #ffffff; /* Fundo dos blocos de conteúdo */
-    --cor-texto: #4b5563; /* Cinza médio */
-    --cor-titulo: #1f2937; /* Cinza chumbo */
-    --borda-suave: 1px solid #e5e7eb;
+    --cor-primaria: #3c4d21;
+    --cor-secundaria: #6b7d41;
+    --cor-destaque: #E3ECAA;
+    --cor-fundo: #fafcf5;
+    --cor-cartao: #ffffff;
+    --cor-texto: #4f5744;
+    --cor-titulo: #1a2112;
+    --borda-suave: 1px solid #e3ecaa;
 }
 
 /* ==========================================================================
@@ -39,26 +37,36 @@ body {
     line-height: 1.7;
 }
 
-h1, h2, h3, .logo {
+h1,
+h2,
+h3,
+.logo {
     font-family: 'Outfit', sans-serif;
     color: var(--cor-titulo);
 }
 
 /* ==========================================================================
-   NAVEGAÇÃO (MENU FIXO)
+   NAVEGAÇÃO (MENU FIXO) - CORRIGIDA PARA DESKTOP
    ========================================================================== */
 .menu-principal {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
     border-bottom: var(--borda-suave);
-    padding: 16px 5%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* CORREÇÃO ETAPA 2: Reduz espaço vazio exagerado e alinha horizontalmente 
+       a linha limite do menu com a posição do botão whatsapp (24px) */
+    padding: 0 24px;
+}
+
+.menu-topo {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
 }
 
 .menu-principal .logo {
@@ -72,6 +80,7 @@ h1, h2, h3, .logo {
 .links-menu {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 24px;
 }
 
@@ -87,17 +96,33 @@ h1, h2, h3, .logo {
     color: var(--cor-secundaria);
 }
 
-@media (max-width: 650px) {
-    .menu-principal {
-        flex-direction: column;
-        gap: 12px;
-        padding: 15px;
-    }
-    .links-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
+/* O NOVO BOTÃO CTA NO MENU (Desktop) */
+.btn-cta {
+    background-color: var(--cor-primaria) !important;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.btn-cta:hover {
+    background-color: var(--cor-secundaria) !important;
+    transform: translateY(-2px);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--cor-primaria);
+    border-radius: 3px;
+    transition: all 0.3s ease;
 }
 
 /* ==========================================================================
@@ -113,9 +138,9 @@ h1, h2, h3, .logo {
 }
 
 .cabecalho h1 {
-    color: white;
     font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 12px;
+    color: white;
 }
 
 .cabecalho h2 {
@@ -125,14 +150,8 @@ h1, h2, h3, .logo {
     font-family: 'Inter', sans-serif;
 }
 
-.cabecalho p {
-    margin-top: 15px;
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
 /* ==========================================================================
-   LAYOUT PRINCIPAL E CARTÕES DE CONTEÚDO
+   LAYOUT PRINCIPAL E CARTÕES
    ========================================================================== */
 .container {
     max-width: 850px;
@@ -161,52 +180,41 @@ h1, h2, h3, .logo {
     line-height: 1.3;
 }
 
+/* ==========================================================================
+   CORREÇÃO ETAPA 1: ALINHAMENTO DAS LISTAS/TÓPICOS
+   ========================================================================== */
+.cartao>ul,
+.cartao>ol {
+    /* Compensa o tamanho da borda (6px) + preenchimento (16px) do H2.
+       Isso alinha a bolinha/número perfeitamente na reta do marcador do título */
+    padding-left: 24px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+.cartao>ul>li,
+.cartao>ol>li {
+    margin-bottom: 10px;
+    /* Melhor respiro e organização visual dos tópicos */
+    line-height: 1.6;
+}
+
 .texto-intro {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.35rem; 
+    font-size: 1.35rem;
     color: var(--cor-primaria);
     line-height: 1.6;
     margin-bottom: 35px;
-    font-weight: 400; 
-    text-align: center; 
+    font-weight: 400;
+    text-align: center;
     padding: 30px;
-    background-color: var(--cor-fundo); 
+    background-color: var(--cor-fundo);
     border-radius: 12px;
-    border: 1px dashed var(--cor-destaque); 
-}
-
-.cartao p {
-    margin-bottom: 16px;
-}
-
-.cartao ul, .cartao ol {
-    margin-left: 20px;
-    margin-bottom: 16px;
-}
-
-.cartao li {
-    margin-bottom: 12px;
-}
-
-.cartao strong {
-    color: var(--cor-titulo);
-}
-
-/* Deixa o cartão mais enxuto e corrige a rolagem em telas de celular */
-@media (max-width: 600px) {
-    .cartao {
-        padding: 24px;
-        scroll-margin-top: 160px; /* Desconto maior para compensar o menu empilhado */
-    }
-    
-    .texto-intro {
-        padding: 20px;
-        font-size: 1.15rem;
-    }
+    border: 1px dashed var(--cor-primaria);
 }
 
 /* ==========================================================================
-   CAIXAS DE DESTAQUE (LEMBRETES)
+   LEMBRETES E TABELAS (DESKTOP)
    ========================================================================== */
 .lembrete-destaque {
     background-color: var(--cor-fundo);
@@ -227,39 +235,28 @@ h1, h2, h3, .logo {
     line-height: 1.2;
 }
 
-.lembrete-destaque p {
-    margin: 0;
-}
-
-/* ==========================================================================
-   TABELA RESPONSIVA E IMAGENS DAS RAÇAS
-   ========================================================================== */
 .tabela-responsiva {
     width: 100%;
-    overflow-x: auto;
     margin-top: 24px;
-    border: var(--borda-suave);
-    border-radius: 8px;
 }
 
 table {
     width: 100%;
-    min-width: 650px;
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding: 16px;
     text-align: left;
     border-bottom: var(--borda-suave);
-    vertical-align: middle; 
+    vertical-align: middle;
 }
 
 th {
-    background-color: var(--cor-primaria); 
-    font-weight: 600;
-    color: white; 
-    border-bottom: none; 
+    background-color: var(--cor-primaria);
+    color: white;
+    border-bottom: none;
 }
 
 tr:hover td {
@@ -271,12 +268,63 @@ tr:hover td {
     height: 80px;
     border-radius: 8px;
     object-fit: cover;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    display: block;
 }
 
 /* ==========================================================================
-   BOTÕES E GALERIA INTERATIVA
+   PESQUISA
+   ========================================================================== */
+.pesquisa {
+    margin-bottom: 0;
+}
+
+.input-pesquisa {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    margin: 0;
+}
+
+.input-pesquisa:focus {
+    background-color: white;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 4px rgba(227, 236, 170, 0.4);
+}
+
+.lista-resultados {
+    list-style: none;
+    margin-left: 0 !important;
+    padding: 0;
+}
+
+.lista-resultados:not(:empty) {
+    margin-top: 20px;
+}
+
+.lista-resultados li {
+    background-color: white;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: var(--borda-suave);
+    border-left: 4px solid var(--cor-primaria);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* ==========================================================================
+   GALERIA E BOTÃO
    ========================================================================== */
 .botao {
     background-color: var(--cor-primaria);
@@ -285,11 +333,10 @@ tr:hover td {
     padding: 14px 28px;
     font-size: 1rem;
     font-weight: 600;
-    font-family: 'Inter', sans-serif;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    margin: 0; 
+    margin: 0;
 }
 
 .botao:hover {
@@ -300,15 +347,16 @@ tr:hover td {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 15px;
 }
 
-.cabecalho-secao h2 {
-    margin-bottom: 0;
+.cabecalho-secao h2,
+.cabecalho-secao .botao {
+    margin: 0;
+    line-height: 1;
 }
 
-/* --- Grade da Galeria --- */
 .grade {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -316,13 +364,11 @@ tr:hover td {
     margin-top: 24px;
 }
 
-/* A MÁGICA AQUI: Se a grade estiver vazia, ela some e zera a margem! */
 .grade:empty {
     display: none;
     margin-top: 0;
 }
 
-/* Imagens da galeria com efeito de Zoom e Sombra */
 .grade img {
     width: 100%;
     height: 200px;
@@ -331,13 +377,11 @@ tr:hover td {
     border: var(--borda-suave);
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
     cursor: pointer;
-    position: relative; /* Ajuda a imagem a sobrepor as outras no momento do zoom */
 }
 
 .grade img:hover {
-    transform: scale(1.05) !important; /* o !important força o zoom a vencer a animação do JavaScript */
-    box-shadow: 0 12px 24px rgba(40, 54, 24, 0.25);
-    border-color: transparent;
+    transform: scale(1.05) !important;
+    box-shadow: 0 12px 24px rgba(60, 77, 33, 0.25);
     z-index: 10;
 }
 
@@ -345,15 +389,38 @@ tr:hover td {
     display: none !important;
 }
 
+/* Botão Whatsapp */
+.btn-whatsapp {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(37, 211, 102, 0.6);
+}
+
 /* ==========================================================================
    RODAPÉ ORGÂNICO
    ========================================================================== */
 .rodape {
-    background-color: #1b260f; 
-    background-image: linear-gradient(to bottom, #1b260f, #141c0a);
+    background-color: #1a2112;
+    background-image: linear-gradient(to bottom, #1a2112, #10140b);
     color: #d1d5db;
     padding-top: 70px;
-    margin-top: 80px;
+    margin-top: 40px;
     border-top: 4px solid var(--cor-destaque);
 }
 
@@ -370,7 +437,6 @@ tr:hover td {
     color: var(--cor-destaque);
     font-size: 1.1rem;
     margin-bottom: 20px;
-    letter-spacing: 0.5px;
 }
 
 .rodape ul {
@@ -384,7 +450,6 @@ tr:hover td {
 .rodape a {
     color: #9ca3af;
     text-decoration: none;
-    transition: color 0.2s;
 }
 
 .rodape a:hover {
@@ -402,119 +467,135 @@ tr:hover td {
     padding: 25px 20px;
     font-size: 0.85rem;
     color: #9ca3af;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ==========================================================================
-   CAMPO DE PESQUISA
+   RESPONSIVIDADE GERAL (MOBILE)
    ========================================================================== */
-.input-pesquisa {
-    width: 100%;
-    padding: 14px 20px;
-    font-size: 1rem;
-    font-family: 'Inter', sans-serif;
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    outline: none;
-    transition: border-color 0.3s;
-}
+@media (max-width: 650px) {
 
-.input-pesquisa:focus {
-    border-color: var(--cor-destaque); /* Fica caramelo quando o usuário clica */
-}
+    /* Menu Hamburguer */
+    .menu-principal {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+    }
 
-.lista-resultados {
-    list-style: none;
-    margin-left: 0 !important; /* Remove a margem padrão das listas */
-}
+    .menu-topo {
+        justify-content: space-between;
+        padding: 16px 24px;
+        /* Mantém proporção da correção desktop no mobile */
+    }
 
-.lista-resultados li {
-    padding: 12px;
-    background-color: var(--cor-fundo);
-    border-radius: 6px;
-    margin-bottom: 8px;
-    color: var(--cor-primaria);
-    font-weight: 500;
-    border-left: 3px solid var(--cor-destaque);
-}
+    .menu-toggle {
+        display: flex;
+    }
 
-/* ==========================================================================
-   SEÇÃO DE PESQUISA (FILTRO)
-   ========================================================================== */
+    .links-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 0 24px 0;
+        background-color: white;
+        gap: 16px;
+    }
 
-/* Garante que a seção tenha a mesma cara dos outros cartões (caso você não tenha colocado a classe 'cartao' no HTML) */
-.pesquisa {
-    background-color: var(--cor-cartao);
-    padding: 40px;
-    border-radius: 16px;
-    border: var(--borda-suave);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-    margin-bottom: 32px;
-}
+    .links-menu.ativo {
+        display: flex;
+    }
 
-.pesquisa h2 {
-    color: var(--cor-primaria);
-    font-size: 1.8rem;
-    margin-bottom: 24px;
-    border-left: 6px solid var(--cor-destaque);
-    padding-left: 16px;
-    line-height: 1.3;
-}
+    /* Botão CTA grande no Mobile */
+    .item-destaque {
+        width: 80%;
+        margin-top: 10px;
+    }
 
-/* --- O Campo de Digitação (Input) --- */
-#campo-filtro {
-    width: 100%;
-    padding: 16px 20px;
-    font-size: 1rem;
-    font-family: 'Inter', sans-serif;
-    color: var(--cor-texto);
-    background-color: var(--cor-fundo); /* Fundo areia clarinho para descansar a visão */
-    border: 2px solid transparent; /* Borda invisível no estado normal */
-    border-radius: 8px;
-    outline: none; /* Remove aquela borda azul padrão feia do navegador */
-    transition: all 0.3s ease;
-    margin-bottom: 20px;
-}
+    .btn-cta {
+        display: block;
+        text-align: center;
+        padding: 12px;
+    }
 
-/* Placeholder (O texto "Escolha uma raça" que fica lá dentro) */
-#campo-filtro::placeholder {
-    color: #9ca3af;
-}
+    /* Ajuste de layout */
+    .container {
+        gap: 16px;
+        margin: 24px auto;
+    }
 
-/* Efeito de Foco (Quando o usuário clica para digitar) */
-#campo-filtro:focus {
-    background-color: white; /* Clareia o fundo */
-    border-color: var(--cor-destaque); /* Acende a borda caramelo */
-    box-shadow: 0 0 0 4px rgba(221, 161, 94, 0.15); /* Cria uma "aura" caramelo ao redor */
-}
-
-/* --- Lista de Resultados --- */
-#resultado {
-    list-style: none; /* Tira as bolinhas padrão da lista */
-    margin-left: 0;
-    padding: 0;
-}
-
-/* Cada item da lista vira um mini-cartão */
-#resultado li {
-    background-color: white;
-    padding: 16px 20px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    border: var(--borda-suave);
-    border-left: 4px solid var(--cor-primaria); /* Detalhe verde na esquerda */
-    color: var(--cor-titulo);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    /* Reutiliza a animação de entrada que já criamos para a galeria */
-    animation: fadeIn 0.3s ease forwards; 
-}
-
-/* Responsividade da seção de pesquisa */
-@media (max-width: 600px) {
-    .pesquisa {
+    .cartao {
         padding: 24px;
+        scroll-margin-top: 80px;
+    }
+
+    /* A MÁGICA DA TABELA NO MOBILE (Transformada em Cards) */
+    .tabela-responsiva table,
+    .tabela-responsiva tbody,
+    .tabela-responsiva tr,
+    .tabela-responsiva td {
+        display: block;
+        width: 100%;
+    }
+
+    .tabela-responsiva thead {
+        display: none;
+    }
+
+    .tabela-responsiva tr {
+        margin-bottom: 20px;
+        border: var(--borda-suave);
+        border-radius: 12px;
+        overflow: hidden;
+        /* Garante que a imagem respeite as bordas arredondadas do card */
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .tabela-responsiva td {
+        padding: 16px;
+        text-align: center;
+        border-bottom: none;
+    }
+
+    .tabela-responsiva td:first-child {
+        padding: 0;
+    }
+
+    .img-tabela {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        /* CORREÇÃO: Força a imagem a não ter espaços em branco e garante o visual de topo de card */
+        display: block;
+        border-radius: 0;
+    }
+
+    /* Seleciona a célula do Nome da Raça */
+    .tabela-responsiva td:nth-child(2) {
+        padding-bottom: 4px;
+        /* Reduza este valor para "grudar" mais */
+    }
+
+    /* Seleciona a célula da Descrição */
+    .tabela-responsiva td:nth-child(3) {
+        padding-top: 0;
+        /* Zere o topo para eliminar o vácuo */
+    }
+
+    /* CORREÇÃO DO BOTÃO WHATSAPP E DO FOOTER NO MOBILE */
+    .btn-whatsapp {
+        bottom: 50px;
+        /* Eleva levemente o botão no eixo Y */
+    }
+
+    .rodape-copyright {
+        /* Aumenta a altura final da página. Garante que o usuário possa rolar 
+           o suficiente para ler os direitos autorais sem que o botão tampe o texto. */
+        padding-bottom: 10px;
+    }
+
+    .rodape-grid {
+        padding-bottom: 30px;
     }
 }

@@ -1,10 +1,30 @@
+// ==========================================================================
+// MENU HAMBÚRGUER (MOBILE)
+// ==========================================================================
+const menuToggle = document.getElementById("menu-toggle");
+const linksMenu = document.getElementById("links-menu");
+const itensMenu = document.querySelectorAll(".links-menu a");
+
+menuToggle.addEventListener("click", () => {
+    linksMenu.classList.toggle("ativo");
+});
+
+itensMenu.forEach(link => {
+    link.addEventListener("click", () => {
+        linksMenu.classList.remove("ativo");
+    });
+});
+
+// ==========================================================================
+// LÓGICA DA GALERIA
+// ==========================================================================
 const imagens = [
     "./imagens/caes/cachorro-golden-retriever.webp",
     "./imagens/caes/caramelo.webp",
     "./imagens/caes/dachshund.png",
-    "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500&q=80",
-    "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=500&q=80",
-    "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=500&q=80"
+    "./imagens/caes/Beagle.avif",
+    "./imagens/caes/Pug.avif",
+    "./imagens/caes/Bulldog-Francês.avif"
 ];
 
 const btnGaleria = document.getElementById("btn-galeria");
@@ -12,7 +32,6 @@ const galeriaContainer = document.getElementById("imagens-galeria");
 let galeriaCarregada = false;
 
 btnGaleria.addEventListener("click", () => {
-    // 1. Se for o PRIMEIRO clique: carrega as imagens, exibe e ajusta o botão
     if (!galeriaCarregada) {
         imagens.forEach((src) => {
             const img = document.createElement("img");
@@ -25,23 +44,21 @@ btnGaleria.addEventListener("click", () => {
         
         galeriaCarregada = true;
         btnGaleria.textContent = "Ocultar Galeria";
-        btnGaleria.style.backgroundColor = "#4b5563"; // Cor de "fechar"
-        return; // Encerra a função aqui neste primeiro clique
+        btnGaleria.style.backgroundColor = "var(--cor-texto)";
+        return; 
     }
 
-    // 2. Do SEGUNDO clique em diante: apenas alterna a classe CSS
     const estaOculto = galeriaContainer.classList.toggle("oculto");
 
     if (estaOculto) {
         btnGaleria.textContent = "Mostrar Galeria";
-        btnGaleria.style.backgroundColor = "var(--cor-primaria)"; // Volta ao verde original
+        btnGaleria.style.backgroundColor = "var(--cor-primaria)";
     } else {
         btnGaleria.textContent = "Ocultar Galeria";
-        btnGaleria.style.backgroundColor = "#4b5563"; // Cor de "fechar"
+        btnGaleria.style.backgroundColor = "var(--cor-texto)"; 
     }
 });
 
-// Adicionando a animação de entrada
 const style = document.createElement('style');
 style.innerHTML = `
   @keyframes fadeIn {
@@ -51,53 +68,40 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-
-//pesquisa
-//para criar listas usamos um array []
-
+// ==========================================================================
+// LÓGICA DE PESQUISA (LAYOUT EM DUAS LINHAS)
+// ==========================================================================
 const listaRacas = [
-    {
-        nome: "Labrador",
-        caracteristica: "protetor",
-    },
-    {
-        nome: "Pastor Alemão",
-        caracteristica:"corajoso"
-    },
-    {
-        nome: "Yorkshire",
-        caracteristica: "caçador",
-    },
+    { nome: "Labrador Retriever", caracteristica: "Amigável, leal e inteligente" },
+    { nome: "Golden Retriever", caracteristica: "Afetuoso e brincalhão" },
+    { nome: "Poodle", caracteristica: "Inteligente e hipoalergênico" },
+    { nome: "Bulldog Inglês", caracteristica: "Tranquilo e de baixa energia" },
+    { nome: "Pastor Alemão", caracteristica: "Corajoso e protetor" },
+    { nome: "Yorkshire", caracteristica: "Pequeno, alerta e caçador" },
+    { nome: "Dachshund", caracteristica: "Curioso, corajoso e animado (o famoso salsicha)" },
+    { nome: "Beagle", caracteristica: "Alegre, amigável e excelente farejador" },
+    { nome: "Vira Lata (SRD)", caracteristica: "Único, amoroso e cheio de personalidade" }
 ];
 
-//capturando o input
-// capturando o input que receberá o texto de busca
-// função sem nome, mas com parâmetro, por isso (e), pois ele está esperando receber alguma informação, no caso, o texto da pesquisa/elemento que foi digitado
-//input é o evento, o (e) é o elemento/texto que foi digitado no input
 document.getElementById("campo-filtro").addEventListener("input", (e) => {
-    const valor = e.target.value.toLowerCase();
-    //capturando a ul do html
-    //value é para pegar o que foi digitado no input. Target é o alvo;
+    const valorDigitado = e.target.value.toLowerCase();
     const resultado = document.getElementById("resultado");
-    //informando ao html que ele iniciará vazio
-    resultado.innerHTML = ""
-    // listaRacas.filter()
-    //metodos de string manipulam texto;
-    //metodos de array
-    //precisa estudar métodos de array e string
     
-    //filtrando no array
-    //o metodo de array filter ele recebe array.filter(()=>:{})
-    //sempre que a arroy function for pquena, pode apagar {}
-    //quando o filtro raca consegue acessar o array, ele acende (cor fica mais forte)
-    //pega o array, olha dentro da propriedade se há algum nome incluido. Precisa retornar o valor da propriedade.
+    resultado.innerHTML = "";
 
-    //forEach: recebe uma função anonima
-    listaRacas.filter((raca) => raca.nome.toLowerCase().includes(valor)).forEach((raca)=> {
-        const li = document.createElement("li");
-        li.textContent= `${raca.nome} - ${raca.caracteristica}`;
-        resultado.appendChild(li);
-    });
-    
-})
+    if (valorDigitado === "") {
+        return; 
+    }
 
+    listaRacas
+        .filter((raca) => raca.nome.toLowerCase().includes(valorDigitado)) 
+        .forEach((raca) => {
+            const li = document.createElement("li");
+            // Mudamos o texto simples para uma estrutura HTML mais bonita
+            li.innerHTML = `
+                <span style="font-weight: 600; color: var(--cor-titulo);">🐾 ${raca.nome}</span>
+                <span style="font-size: 0.9rem; color: var(--cor-texto); line-height: 1.4;">${raca.caracteristica}</span>
+            `;
+            resultado.appendChild(li);
+        });
+});

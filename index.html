@@ -3,31 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuidados Pets</title>
+    <title>Cuidados Pets | Por Bruno Artacho</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./imagens/caes/logo_pegada_cao.png" type="image/x-icon">
 </head>
 
 <body>
     <nav class="menu-principal">
-        <a href="#" class="logo">🐾 Cuidados Pets</a>
-        <ul class="links-menu">
-            <li><a href="#boas_vindas">Dicas Básicas</a></li>
+        <div class="menu-topo">
+            <a href="#" class="logo">🐾 Cuidados Pets</a>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <ul class="links-menu" id="links-menu">
+            <li><a href="#boas_vindas">Dicas</a></li>
             <li><a href="#tabela_racas">Raças</a></li>
-            <li><a href="#dicas_treinamento">Treinamento</a></li>
-            <li><a href="#sinais_ajuda_pet">Saúde & Emergências</a></li>
+            <li><a href="#dicas_treinamento">Treino</a></li>
+            <li><a href="#sinais_ajuda_pet">Saúde</a></li>
+            <li class="item-destaque"><a href="#rodape" class="btn-cta">Fale Conosco</a></li>
         </ul>
     </nav>
 
     <header class="cabecalho">
         <h1>Cuidados Pets</h1>
         <h2>Cuidados básicos com o seu cachorro</h2>
-        <p>18 de janeiro de 2026</p>
     </header>
 
     <main class="container">
+        
         <section id="boas_vindas" class="cartao">
-            <p class="texto-intro">Bem-vindo ao nosso blog sobre cachorros de estimação! Neste espaço, você encontrará informações e dicas úteis sobre como cuidar do seu melhor amigo canino.</p>
+            <p class="texto-intro">Bem-vindo ao nosso blog sobre cachorros de estimação!<br>Neste espaço, você encontrará informações e dicas úteis sobre como cuidar do seu melhor amigo canino.</p>
             <ul>
                 <li><strong>Alimentação:</strong> uma alimentação adequada é essencial para a saúde do seu cão. Dê a ele ração de qualidade e evite dar comida humana, que pode causar problemas de saúde.</li>
                 <li><strong>Higiene:</strong> banhos regulares, escovação dos pelos e limpeza dos ouvidos são importantes para manter o seu cachorro limpo e saudável.</li>
@@ -81,6 +90,12 @@
             </div>
         </section>
 
+        <section class="pesquisa cartao">
+            <h2>Pesquisar Raças</h2>
+            <input type="text" id="campo-filtro" class="input-pesquisa" placeholder="Digite o nome de uma raça (ex: Poodle, Vira Lata...)">
+            <ul id="resultado" class="lista-resultados"></ul>
+        </section>
+
         <section id="dicas_treinamento" class="cartao">
             <h2>Dicas para treinamento de cachorro</h2>
             <ol>
@@ -101,29 +116,19 @@
                 <h2>Galeria de Cães</h2>
                 <button id="btn-galeria" class="botao">Mostrar Galeria</button>
             </div>
-            
             <div id="imagens-galeria" class="grade"></div>
-        </section>
-
-        <section class="pesquisa cartao">
-            <h2>Pesquisar Raças</h2>
-            <input type="text" id="campo-filtro" placeholder="Escolha uma raça">
-            <ul id="resultado">
-                
-            </ul>
-            
         </section>
 
         <section id="sinais_ajuda_pet" class="cartao">
             <h2>Sinais de que seu cachorro precisa de ajuda veterinária</h2>
-            <p>Saber reconhecer quando seu cachorro não está bem é fundamental para garantir sua saúde e bem-estar. Muitas vezes, os pets não conseguem demonstrar claramente que estão sentindo dor ou desconforto, por isso é importante estar atento aos sinais.</p>
+            <p>Saber reconhecer quando seu cachorro não está bem é fundamental para garantir sua saúde e bem-estar. Muitas vezes, os pets não conseguem demonstrar claramente que estão sentindo dor ou desconforto.</p>
             <ul>
-                <li><strong>Dificuldade para respirar:</strong> respiração ofegante excessiva, língua azulada ou respiração muito rápida;</li>
-                <li><strong>Vômitos frequentes:</strong> especialmente se houver sangue ou se o animal não conseguir manter água no estômago;</li>
-                <li><strong>Diarreia com sangue:</strong> pode indicar problemas intestinais sérios;</li>
-                <li><strong>Convulsões:</strong> movimentos descontrolados, perda de consciência;</li>
-                <li><strong>Inchaço abdominal:</strong> barriga muito inchada e rígida, especialmente em cães grandes;</li>
-                <li><strong>Ferimentos graves:</strong> cortes profundos, fraturas óbvias ou sangramento intenso.</li>
+                <li><strong>Dificuldade para respirar:</strong> respiração ofegante excessiva, língua azulada ou respiração muito rápida</li>
+                <li><strong>Vômitos frequentes:</strong> especialmente se houver sangue ou se o animal não conseguir manter água no estômago</li>
+                <li><strong>Diarreia com sangue:</strong> pode indicar problemas intestinais sérios</li>
+                <li><strong>Convulsões:</strong> movimentos descontrolados, perda de consciência</li>
+                <li><strong>Inchaço abdominal:</strong> barriga muito inchada e rígida, especialmente em cães grandes</li>
+                <li><strong>Ferimentos graves:</strong> cortes profundos, fraturas óbvias ou sangramento intenso</li>
             </ul>
         </section>
 
@@ -150,13 +155,13 @@
             </ol>
             
             <div class="lembrete-destaque">
-                <p><strong>Lembrete:</strong> é sempre melhor prevenir do que remediar. Consultas regulares ao veterinário ajudam a identificar problemas antes que se tornem graves. Quando em dúvida, sempre consulte um profissional - seu cachorro agradecerá!</p>
+                <p><strong>Lembrete:</strong> é sempre melhor prevenir do que remediar. Consultas regulares ao veterinário ajudam a identificar problemas antes que se tornem graves.</p>
             </div>
         </section>
 
     </main>
 
-    <footer class="rodape">
+    <footer id="rodape" class="rodape">
         <div class="rodape-grid">
             <article>
                 <h3>Informações Úteis</h3>
@@ -181,16 +186,22 @@
              <article>
                 <h3>Contato</h3>
                 <p>Rua das Flores, 123 - Centro</p>
-                <p>Campina Grande - PB</p>
+                <p>São Paulo - SP</p>
                 <p>contato@cuidadospets.com</p>
             </article>
         </div>
 
         <div class="rodape-copyright">
-            <p>© 2026 Cuidados Pets. Todos os direitos reservados. | Última atualização: 18 de julho de 2026</p>
+            <p>© 2026 Cuidados Pets. Todos os direitos reservados. | Desenvolvido por Bruno Artacho</p>
         </div>
     </footer>
 
     <script src="./script.js"></script>
+
+    <a href="https://wa.me/5544984366533" target="_blank" class="btn-whatsapp" aria-label="Falar no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30" height="30">
+            <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 512l150.3-39.4c32.7 17.7 68.9 27 105.9 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-23.1-115-65-156.6zM223.9 444.8c-32.8 0-65-8.8-93.1-25.5l-6.7-4-69.2 18.2 18.5-67.4-4.4-7c-18.3-29.1-28-62.8-28-97.1 0-104.3 84.9-189.2 189.3-189.2 50.6 0 98.1 19.7 133.9 55.5s55.5 83.3 55.5 133.9c0 104.2-84.8 189.1-189.2 189.1zm103.8-142.1c-5.7-2.8-33.8-16.7-39-18.6-5.2-1.9-9-2.8-12.8 2.8-3.8 5.7-14.7 18.6-18 22.4-3.3 3.8-6.6 4.3-12.3 1.4-5.7-2.8-24.1-8.9-45.9-28.3-17-15.1-28.5-33.8-31.8-39.5-3.3-5.7-.3-8.8 2.5-11.6 2.6-2.6 5.7-6.6 8.5-9.9 2.8-3.3 3.8-5.7 5.7-9.5 1.9-3.8.9-7.1-.5-9.9-1.4-2.8-12.8-30.8-17.5-42.2-4.6-11.1-9.2-9.6-12.8-9.8-3.3-.2-7.1-.2-10.9-.2-3.8 0-9.9 1.4-15.1 7.1-5.2 5.7-20 19.4-20 47.1 0 27.7 20.4 54.5 23.2 58.3 2.8 3.8 39.8 60.8 96.3 85.3 13.4 5.8 23.9 9.3 32.1 11.9 13.5 4.3 25.8 3.7 35.5 2.2 10.9-1.7 33.8-13.8 38.5-27.1 4.7-13.3 4.7-24.6 3.3-27.1-1.4-2.5-5.2-3.9-10.9-6.7z"/>
+        </svg>
+    </a>
 </body>
 </html>
